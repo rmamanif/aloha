@@ -64,7 +64,7 @@ class register extends React.Component {
       }
     
     
-
+      
 
     render() { 
         return ( 

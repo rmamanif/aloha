@@ -77,6 +77,11 @@ function App() {
                         <li className="wow fadeInDown" data-wow-delay="0.1s"><a  href="solicitud">Solicitudes</a></li>
 
                         <li className="wow fadeInDown" data-wow-delay="0.4s"><a href="contact">Contactanos</a></li>
+                        {cookies.get('correo')?
+                        (<li className="wow fadeInDown" data-wow-delay="0.4s"><a href="user-profile">Mi perfil</a></li>
+                        ):(<p></p>)
+
+                        }
                     </ul>
                 </div>
             </div>
