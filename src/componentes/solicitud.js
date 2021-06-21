@@ -12,13 +12,15 @@ import 'primeicons/primeicons.css';
 class solicitud extends React.Component {
     constructor(){
         super();
-        this.state = {};
+        this.state = ({
+            solicitudes:[]
+        });
         this.solicitudService = new SolicitudService();
 
       }
 
       componentDidMount(){
-        this.solicitudService.getAll().then(data => this.setState ({solicitudes: data}))
+        this.solicitudService.getAll().then(data => this.setState ({solicitudes: data}));
       }
 
     render() { 
@@ -256,10 +258,11 @@ class solicitud extends React.Component {
 
 
 
-
-
-                        <div className="col-md-12 clear"> 
+                    <div className="col-md-12 clear"> 
                             <div id="list-type" className="proerty-th">
+                        {  this.state.solicitudes.map((solicitudes,index) => {
+                            return(
+                                
                                      
 
                                             <div>
@@ -269,17 +272,30 @@ class solicitud extends React.Component {
                                                                 <a href="property" ><img src="assets/img/demo/property-3.jpg" alt="img" /></a>
                                                             </div>
                                                             <div className="item-entry overflow">
-                                                                <h5><a href="property"> Super nice villa </a></h5>
+                                                                <h5><a href="property"> {solicitudes.titulo} </a></h5>
                                                                 <div className="dot-hr"></div>
 
                                                                 <span className="pull-left" field="superficie"><b> Area :</b> 218</span>
                                                                 
-                                                                <span className="proerty-price pull-right"> $ 300,000</span>
+                                                                <span className="proerty-price pull-right"> {solicitudes.presupuesto}</span>
                                                                 <p style={{ display: 'none'}} >Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
                                                                 <div className="property-icon">
-                                                                    <img src="assets/img/icon/bed.png" alt="img" />(5)|
-                                                                    <img src="assets/img/icon/shawer.png" alt="img" />(2)|
-                                                                    <img src="assets/img/icon/cars.png" alt="img"  />(1)  
+                                                                    <img src="assets/img/icon/bed.png" alt="img" />{solicitudes.banos}|
+                                                                    <img src="assets/img/icon/cars.png" alt="img"  />{solicitudes.habitaciones} 
+                                                                <ul>
+                                                                    <li>{solicitudes.id}</li>
+                                                                    <li>{solicitudes.usuarioid}</li>
+                                                                    <li>{solicitudes.titulo}</li>
+                                                                    <li>{solicitudes.tiposol}</li>
+                                                                    <li>{solicitudes.superficie}</li>
+                                                                    <li>{solicitudes.provincia}</li>
+                                                                    <li>{solicitudes.distrito}</li>
+                                                                    <li>{solicitudes.habitaciones}</li>
+                                                                    <li>{solicitudes.banos}</li>
+                                                                    <li>{solicitudes.presupuesto}</li>
+                                                                    <li>{solicitudes.cochera? 'si':'no'}</li>
+                                                                    <li>{solicitudes.estado? 'si':'no'}</li>
+                                                                </ul>
                                                                 </div>
                                                             </div>
 
@@ -293,11 +309,13 @@ class solicitud extends React.Component {
 
 
                                                 
-                            </div>    
-                        </div>
-                 
+                            
+                            )
+                        })
+                        }   
                                      
-
+                        </div>    
+                        </div>
 
 
    
