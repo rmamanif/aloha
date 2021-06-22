@@ -28,7 +28,7 @@ class userprofile extends React.Component {
         this.cambioCelular = this.cambioCelular.bind(this);
         this.cambioTelefono = this.cambioTelefono.bind(this);
         this.save = this.save.bind(this);
-
+        
     }
 
     componentDidMount() {

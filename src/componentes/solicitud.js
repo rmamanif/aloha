@@ -269,33 +269,31 @@ class solicitud extends React.Component {
                                                 <div className="col-sm-6 col-md-4 p0">
                                                         <div className="box-two proerty-item">
                                                             <div className="item-thumb">
-                                                                <a href="property" ><img src="assets/img/demo/property-3.jpg" alt="img" /></a>
+                                                                <a href="property" ></a>
                                                             </div>
                                                             <div className="item-entry overflow">
-                                                                <h5><a href="property"> {solicitudes.titulo} </a></h5>
+                                                                <h5><a href="property"> 
+                                                                {(solicitudes.titulo.length >16)?
+                                                                (solicitudes.titulo.substring(0,16)+"...."):(solicitudes.titulo)} 
+                                                                </a></h5>
                                                                 <div className="dot-hr"></div>
 
                                                                 <span className="pull-left" field="superficie"><b> Area :</b> 218</span>
                                                                 
-                                                                <span className="proerty-price pull-right"> {solicitudes.presupuesto}</span>
+                                                                <span className="proerty-price pull-right"> S/. {solicitudes.presupuesto} al mes</span>
                                                                 <p style={{ display: 'none'}} >Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
                                                                 <div className="property-icon">
                                                                     <img src="assets/img/icon/bed.png" alt="img" />{solicitudes.banos}|
-                                                                    <img src="assets/img/icon/cars.png" alt="img"  />{solicitudes.habitaciones} 
-                                                                <ul>
-                                                                    <li>{solicitudes.id}</li>
-                                                                    <li>{solicitudes.usuarioid}</li>
-                                                                    <li>{solicitudes.titulo}</li>
-                                                                    <li>{solicitudes.tiposol}</li>
-                                                                    <li>{solicitudes.superficie}</li>
-                                                                    <li>{solicitudes.provincia}</li>
-                                                                    <li>{solicitudes.distrito}</li>
-                                                                    <li>{solicitudes.habitaciones}</li>
-                                                                    <li>{solicitudes.banos}</li>
-                                                                    <li>{solicitudes.presupuesto}</li>
-                                                                    <li>{solicitudes.cochera? 'si':'no'}</li>
-                                                                    <li>{solicitudes.estado? 'si':'no'}</li>
-                                                                </ul>
+                                                                    <img src="assets/img/icon/cars.png" alt="img"  />{solicitudes.habitaciones}
+                                                                </div>
+                                                                <div>
+                                                                <div max>
+                                                                <h3 className="dealer-name " >
+                                                                {(solicitudes.descripcion.length >15)?
+                                                                 (solicitudes.descripcion.substring(0,15)+"..."):(solicitudes.descripcion)
+                                                                    }
+                                                                </h3>
+                                                                </div>
                                                                 </div>
                                                             </div>
 
